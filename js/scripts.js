@@ -1,3 +1,6 @@
+let nombreJugador1 = "Jugador1";
+let nombreJugador2 = "Jugador2";
+
 /**
  * Abre una ventana en la web de la RAE
  * para comprobar que la palabra existe
@@ -24,4 +27,21 @@ function buscarRaePorIdValue(id){
  function buscarRaePorInnerHTML(id){
     let palabra = document.getElementById(id).innerHTML;
     buscarRae(palabra);
+}
+
+/**
+ * Devuelve un número aleatorio entre dos valores
+ * @param min valor mínimo
+ * @param max valor máximo
+ */
+function getRandom(min, max){
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+/**
+ * Devuelve un valor aleatorio de un array
+ * @param miArray array seleccionado
+ */
+function getRandomFromArray(miArray){
+    return miArray[getRandom(0, miArray.length-1)];
 }
