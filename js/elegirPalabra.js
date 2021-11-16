@@ -111,8 +111,8 @@ function getConsonante(){
 
 /**
  * Botón "continuar" guarda la palabra actual en el sessionStorage
+ * y carga introducirPalabra.js
  */
-//TODO: carga la siguiente página
 function continuarElegirPalabra(){
     let miPalabra = "";
     let miArray = Array.from(listaLetras.children);
@@ -122,4 +122,5 @@ function continuarElegirPalabra(){
     });
     
     sessionStorage.setItem("letrasElegidas", miPalabra);
+    window.open("introducirPalabra.html", "_self");
 }
