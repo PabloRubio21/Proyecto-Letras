@@ -1,0 +1,48 @@
+#listaLetras{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+#listaLetras > div{
+    font-size: 50px;
+    color: #bbb;
+    margin: 0px 5px;
+}
+
+#titularEleccion{
+    text-align: center;
+}
+
+#botonesEleccion{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#botonesEleccion > input{
+    margin: 5px 5px;
+    padding: 10px 15px;
+}
+
+#loadingBar {
+    background: #ccc;
+    width: 100%;
+}
+#loadingBar > div{
+    background: #888;
+    height: 20px;
+    width: 0%;
+}
+
+@media screen and (max-width: 425px){
+    #botonesEleccion > input{
+        width: 100%;
+    }
+
+    #botonesEleccion > input{
+        margin: 5px 5px;
+        padding: 20px;
+    }
+}

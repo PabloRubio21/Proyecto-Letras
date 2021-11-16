@@ -21,8 +21,12 @@ window.onload = function(){
 function setLetra(miEleccion){
 
     if (eleccionHaTerminado()) {
-        if (!isCuentaAtrasIniciada)
+        if (!isCuentaAtrasIniciada){
             cuentaAtras();
+            document.getElementById("loadingBar").children[0].style.width = "100%";
+            document.getElementById("loadingBar").children[0].style.transition
+                = `${segundosCuentaAtrás}s linear`;
+        }
         isCuentaAtrasIniciada = true;
         document.getElementById("vocal").style.display = 'none';
         document.getElementById("consonante").style.display = 'none';
@@ -36,6 +40,7 @@ function setLetra(miEleccion){
                 listaLetras.children[indiceLetra].innerHTML = getConsonante();
                 break;
         }
+        listaLetras.children[indiceLetra].style.color = "black";
 
         isTurnoJugador1 = !isTurnoJugador1;
 
@@ -70,16 +75,19 @@ function eleccionHaTerminado(){
  * Se llama de forma recursiva cada segundo hasta que termine el tiempo
  */
 function cuentaAtras() {
-    titularEleccion.innerHTML = `${contadorSegundos} / ${segundosCuentaAtrás}`;
+    titularEleccion.innerHTML = `Piensa en una palabra</br>
+        ${contadorSegundos}
+        <span style="color:#aaa; font-size:14px"> /
+        ${segundosCuentaAtrás}</span>`;
 
-    if (segundosCuentaAtrás >= contadorSegundos){
+    if (segundosCuentaAtrás > contadorSegundos){
         setTimeout(function () {
             contadorSegundos++;
             cuentaAtras();
         }, 1000);
     }
     else{
-        titularEleccion.innerHTML = `Fin`;
+        titularEleccion.innerHTML = `Fin del tiempo`;
         document.getElementById("continuar").style.display = 'block';
     }
 }
@@ -101,6 +109,10 @@ function getConsonante(){
     return getRandomFromArray(consonantes);
 }
 
+/**
+ * Botón "continuar" guarda la palabra actual en el sessionStorage
+ */
+//TODO: carga la siguiente página
 function continuarElegirPalabra(){
     let miPalabra = "";
     let miArray = Array.from(listaLetras.children);
