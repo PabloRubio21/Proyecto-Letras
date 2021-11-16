@@ -24,6 +24,7 @@
 .Ju{
     background-color: rgb(155, 191, 233);
     width: 300px;
+    height: 200px;
 }
 
 input::placeholder{ /* Dejar centrado el texto del placeholder*/
@@ -47,7 +48,7 @@ input::placeholder{ /* Dejar centrado el texto del placeholder*/
 
 #espacio{
     width: 300px;
-    height: 200px;
+    height: 100px;
     background-color: transparent;
 }
 
@@ -57,3 +58,9 @@ input::placeholder{ /* Dejar centrado el texto del placeholder*/
     justify-content: center;
     margin-top: 50px;
 }
+
+@media only screen and (max-width: 915px) { /* espacio */
+    #espacio {
+      width: 900px;
+    }
+  }
