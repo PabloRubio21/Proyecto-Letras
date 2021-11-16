@@ -1,5 +1,6 @@
 let nombreJugador1 = "Jugador1";
 let nombreJugador2 = "Jugador2";
+let letrasElegidas = sessionStorage.getItem("letrasElegidas");
 
 /**
  * Abre una ventana en la web de la RAE

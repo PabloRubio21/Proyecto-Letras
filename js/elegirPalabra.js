@@ -100,3 +100,14 @@ function getConsonante(){
         "n", "ñ", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"];
     return getRandomFromArray(consonantes);
 }
+
+function continuarElegirPalabra(){
+    let miPalabra = "";
+    let miArray = Array.from(listaLetras.children);
+
+    miArray.forEach(element => {
+        miPalabra += element.innerHTML;
+    });
+    
+    sessionStorage.setItem("letrasElegidas", miPalabra);
+}
