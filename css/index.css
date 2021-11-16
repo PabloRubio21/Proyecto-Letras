@@ -1,0 +1,59 @@
+#cuerpo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#titulo{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#jugadores{
+    margin-top: 100px;
+    width: 100%; 
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Ju{
+    background-color: rgb(155, 191, 233);
+    width: 300px;
+}
+
+input::placeholder{ /* Dejar centrado el texto del placeholder*/
+    text-align: center;
+ }
+
+.centrar{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.color{
+    margin-left: 5px;
+    width: 100px; 
+    height: 50px; 
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#espacio{
+    width: 300px;
+    height: 200px;
+    background-color: transparent;
+}
+
+#pie{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
