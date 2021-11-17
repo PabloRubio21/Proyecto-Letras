@@ -59,14 +59,14 @@ function getRandomFromArray(miArray){
 }
 
 /**
- * 
- * @returns 
+ * @returns 0, 1 si gana un jugador, "empate" o "ganaNadie"
  */
 function checkPalabraMasLarga(){
     if (!Jugadores[0].isPalabraValida && !Jugadores[1].isPalabraValida)
         return "ganaNadie";
 
-    else if (Jugadores[0].palabra.length == Jugadores[1].palabra.length)
+    else if (Jugadores[0].palabra.length == Jugadores[1].palabra.length
+        && Jugadores[0].isPalabraValida && Jugadores[1].isPalabraValida)
         return "empate";
 
     else if(Jugadores[0].palabra.length > Jugadores[1].palabra.length && Jugadores[0].isPalabraValida

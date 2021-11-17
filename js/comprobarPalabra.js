@@ -14,16 +14,20 @@ window.onload = function(){
     }
     catch (error){
         console.log(error);
-        titularGanador.innerHTML = `No ha ganado ningún jugador, esta pantalla no debería
-            salir en caso de empate o ningún ganador`;
+        titularGanador.innerHTML = `${checkPalabraMasLarga()}
+            <br/>No ha ganado ningún jugador, esta pantalla no debería
+            salir en caso de empate o que ningún ganador gane`;
         titularPalabra.innerHTML = `Error`;
-        
+
     }
     
 }
 
+/**
+ * 
+ */
 function palabraCorrecta(){
-    // TODO: Carga la pantalla de victoria
+    window.open("hasGanado.html", "_self");
 }
 
 function palabraIncorrecta(){
