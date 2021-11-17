@@ -59,8 +59,7 @@ function cogerLetras(e){
                 e.target.innerHTML="";
                 this.removeEventListener("click", colocarLetras);
                 this.addEventListener("click", colocarLetras);
-                e.target.style.backgroundColor="#DDDDDD";
-                e.target.style.borderRadius="50%";
+                e.target.classList="diseñoCaja";
                 break;
             }
         }
@@ -111,10 +110,8 @@ function colocarLetras(e){
  */
 function diseño(){
     for (let i = 0; i < cajas1.length; i++) {
-        cajas1[i].style.backgroundColor="white";
-        cajas1[i].style.borderRadius="0%";
-        cajas2[i].style.backgroundColor="white";
-        cajas2[i].style.borderRadius="0%";
+        cajas1[i].classList="caja";
+        cajas2[i].classList="caja";
     }
 }
 
@@ -168,7 +165,7 @@ function turnoPalabra(){
         darPalabra(jugadorTurno, ventana);
     }else if(sessionStorage.getItem("jugadorPalabra2")==null){
         jugadorTurno="jugadorPalabra2";
-        ventana="jugadorLongitud.html";
+        ventana="comprobarPalabra.html";
         darPalabra(jugadorTurno, ventana);
     }
 }
