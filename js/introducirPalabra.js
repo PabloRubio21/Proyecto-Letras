@@ -1,4 +1,3 @@
-window.addEventListener("load", iniciar);
 let letrasIntroducidas="olaquetal";
 let contenedor1;
 let contenedor2;
@@ -11,9 +10,9 @@ let boton;
 
 /**
  * Crear eventos, alguna variable global, para cargar la pagina y
- * para llamar a la funcion que coloca las letras
+ * para llamar a las funciones que colocan las letras y el titulo
  */
-function iniciar(){
+window.onload=function(){
     contenedor1=document.getElementById("contenedor1");
     cajas1=contenedor1.children;
     contenedor2=document.getElementById("contenedor2");
@@ -25,9 +24,10 @@ function iniciar(){
     contenedor2.addEventListener("click", cogerLetras);
     contenedor1.addEventListener("click", colocarLetras);
     contenedor2.addEventListener("click", colocarLetras);
-    boton.addEventListener("click", darPalabra);
+    boton.addEventListener("click", turnoPalabra);
 
     agregarLetras(letrasIntroducidas);
+    colocarTitulo();
 }
 
 /**
@@ -59,6 +59,8 @@ function cogerLetras(e){
                 e.target.innerHTML="";
                 this.removeEventListener("click", colocarLetras);
                 this.addEventListener("click", colocarLetras);
+                e.target.style.backgroundColor="#DDDDDD";
+                e.target.style.borderRadius="50%";
                 break;
             }
         }
@@ -80,6 +82,7 @@ function colocarLetras(e){
                 texto=document.createTextNode(letraAux);
                 e.target.appendChild(texto);
                 letraAux="";
+                diseño();
                 break;
             }
         }
@@ -95,6 +98,7 @@ function colocarLetras(e){
                 texto=document.createTextNode(letraAux);
                 e.target.appendChild(texto);
                 letraAux="";
+                diseño();
                 break;
             }
         }
@@ -102,13 +106,69 @@ function colocarLetras(e){
 }
 
 /**
+ * Al colocar la letra en su posicion final, las cajas vuelven a su color y
+ * con su tamaño inicial
+ */
+function diseño(){
+    for (let i = 0; i < cajas1.length; i++) {
+        cajas1[i].style.backgroundColor="white";
+        cajas1[i].style.borderRadius="0%";
+        cajas2[i].style.backgroundColor="white";
+        cajas2[i].style.borderRadius="0%";
+    }
+}
+
+/**
  * Coge el texto de cada caja y lo convierte a un string
  * @returns la palabra formada a partir de las letras dadas
  */
-function darPalabra(){
+/**
+ * Coge el texto de cada caja y lo convierte a un string y crea el
+ * sessionStorage correspondiente
+ * @param {String} jugadorTurno turno de cada jugador
+ * @param {String} ventana para diferenciar que ventana abrir en cada caso
+ */
+function darPalabra(jugadorTurno, ventana){
     let array=[];
     for (let i = 0; i < cajas2.length; i++) {
         array.push(cajas2[i].innerHTML);
     }
-    return array.join("");
+    let palabra=array.join("");
+    if(palabra!=""){
+        sessionStorage.setItem(jugadorTurno, palabra);
+        window.open(ventana, "_self");
+    }
+}
+
+/**
+ * Coloca el texto del titulo con el nombre del jugador correspondiente
+ */
+function colocarTitulo(){
+    var texto;
+    var titulo=document.getElementsByTagName("h1")[0];
+    if(sessionStorage.getItem("jugadorPalabra1")==null){
+        texto=document.createTextNode(nombreJugador1+" introduce la palabra");
+        titulo.appendChild(texto);
+    }else if(sessionStorage.getItem("jugadorPalabra2")==null){
+        texto=document.createTextNode(nombreJugador2+" introduce la palabra");
+        titulo.appendChild(texto);
+    }
+}
+
+/**
+ * Mira si estan creadas las sesiones de las palabras de cada jugador y
+ * si no lo estan, las crea y luego abre la siguiente ventana
+ */
+function turnoPalabra(){
+    var jugadorTurno;
+    var ventana;
+    if(sessionStorage.getItem("jugadorPalabra1")==null){
+        jugadorTurno="jugadorPalabra1";
+        ventana="introducirPalabra.html";
+        darPalabra(jugadorTurno, ventana);
+    }else if(sessionStorage.getItem("jugadorPalabra2")==null){
+        jugadorTurno="jugadorPalabra2";
+        ventana="jugadorLongitud.html";
+        darPalabra(jugadorTurno, ventana);
+    }
 }
