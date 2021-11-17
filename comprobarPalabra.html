@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/comprobarPalabra.css">
+    <script src="js/scripts.js"></script>
+    <script src="js/comprobarPalabra.js"></script>
+</head>
+<body>
+    <h2 id="titularPalabra">palabra</div>
+    <h2 id="titularGanador">Jugador X tiene la palabra mas larga</h2>
+    <div id="botonesEleccion">
+        <input type="button" value="Palabra Correcta" id="vocal">
+        <input type="button" value="Palabra Incorrecta" id="consonante">
+        <input type="button" value="Comprobar en la RAE" id="palabraJugador" onclick="buscarRaePorInnerHTML('titularPalabra')">
+    </div>
+</body>
+</html>

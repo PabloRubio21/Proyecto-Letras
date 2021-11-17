@@ -1,3 +1,14 @@
+class Jugador{
+    constructor(nombre, palabra) {
+        this.nombre = nombre;
+        this.palabra = palabra;
+        this.isPalabraValida = true;
+    }
+}
+let Jugadores = [new Jugador("Jugador1", "PalabraJ1"),
+    new Jugador("Jugador2", "PalabraJ2")];
+
+// TODO: Eliminar nombreJugador1 y nombreJugador2 para empezar a usar clases
 let nombreJugador1 = "Jugador1";
 let nombreJugador2 = "Jugador2";
 let letrasElegidas = sessionStorage.getItem("letrasElegidas");
@@ -45,4 +56,23 @@ function getRandom(min, max){
  */
 function getRandomFromArray(miArray){
     return miArray[getRandom(0, miArray.length-1)];
+}
+
+/**
+ * 
+ * @returns 
+ */
+function checkPalabraMasLarga(){
+    if (!Jugadores[0].isPalabraValida && !Jugadores[1].isPalabraValida)
+        return "ganaNadie";
+
+    else if (Jugadores[0].palabra.length == Jugadores[1].palabra.length)
+        return "empate";
+
+    else if(Jugadores[0].palabra.length > Jugadores[1].palabra.length && Jugadores[0].isPalabraValida
+        && Jugadores[1].isPalabraValida || !Jugadores[1].isPalabraValida)
+        return 0;
+
+    else
+        return 1;
 }
