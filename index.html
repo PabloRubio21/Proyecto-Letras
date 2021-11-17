@@ -9,28 +9,45 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="js/scripts.js"></script>
+    <script src="js/Pruebas.js"></script>
 </head>
 <body>
     <div id="cuerpo">
     <div id="titulo">
-        <h1>LETRAS</h1>
+        <div><h1 class="letra">L</h1></div>
+        <div><h1 class="letra">E</h1></div>
+        <div><h1 class="letra">T</h1></div>
+        <div><h1 class="letra">R</h1></div>
+        <div><h1 class="letra">A</h1></div>
+        <div><h1 class="letra">S</h1></div>
     </div>
+
     <div id="jugadores">
         <div class="Ju">
             <form name="jugador1" class="centrar">
                 <h2>Jugador 1</h2>
                 <input type="text" name="nombre" placeholder="Introduce el nombre"> 
-               <input type="color" name="color" class="color">
+                <div class="colores">
+                <input type="button" name="azul" class="color">
+                <input type="button" name="rojo" class="color">
+                <input type="button" name="amarillo" class="color">
+                <input type="button" name="verde" class="color">
+                </div>
             </form>
         </div>
-        <div id="espacio">
-            
-        </div>
+
+        <div id="espacio">   </div>
+
         <div class="Ju">
             <form name="jugador2" class="centrar">
                <h2>Jugador 2</h2> 
                <input type="text" name="nombre" placeholder="Introduce el nombre"> 
-               <input type="color" name="color" class="color" >
+               <div class="colores">
+                <input type="button" name="azul" class="color">
+                <input type="button" name="rojo" class="color">
+                <input type="button" name="amarillo" class="color">
+                <input type="button" name="verde" class="color">
+                </div>
             </form>
         </div>
     </div>
