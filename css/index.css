@@ -31,6 +31,7 @@
     background-color: rgb(155, 191, 233);
     width: 300px;
     height: 200px;
+    border-radius: 20px;
 }
 
 input::placeholder{ /* Dejar centrado el texto del placeholder*/
@@ -67,16 +68,16 @@ input::placeholder{ /* Dejar centrado el texto del placeholder*/
 }
 
 /* Colores de los botones*/
-input[name="azul"]{
+input[name="blue"]{
     background-color: blue;
 }
-input[name="rojo"]{
+input[name="red"]{
     background-color: red;
 }
-input[name="amarillo"]{
+input[name="yellow"]{
     background-color: yellow;
 }
-input[name="verde"]{
+input[name="green"]{
     background-color: green;
 }
 
