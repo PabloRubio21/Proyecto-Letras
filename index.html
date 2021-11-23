@@ -3,57 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Document</title>
+    <title>Letras</title>
     
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="js/scripts.js"></script>
-    <script src="js/Pruebas.js"></script>
+    <script src="js/index.js"></script>
 </head>
 <body>
-    <div id="cuerpo">
-    <div id="titulo">
-        <div><h1 class="letra">L</h1></div>
-        <div><h1 class="letra">E</h1></div>
-        <div><h1 class="letra">T</h1></div>
-        <div><h1 class="letra">R</h1></div>
-        <div><h1 class="letra">A</h1></div>
-        <div><h1 class="letra">S</h1></div>
-    </div>
+    <h1>
+        <span class="letra">L</span>
+        <span class="letra">E</span>
+        <span class="letra">T</span>
+        <span class="letra">R</span>
+        <span class="letra">A</span>
+        <span class="letra">S</span>
+    </h1>
 
     <div id="jugadores">
-        <div class="Ju">
-            <form class="centrar">
-                <h2>Jugador 1</h2>
-                <input type="text" name="nombre" placeholder="Introduce el nombre"> 
-                <div id="c1" class="colores">
-                <input type="button" name="blue" class="color">
-                <input type="button" name="red" class="color">
-                <input type="button" name="yellow" class="color">
-                <input type="button" name="green" class="color">
-                </div>
-            </form>
+        <div class="jugador">
+            <!-- <h2>Jugador 1</h2> -->
+            <input type="text" id="nombreJ1" name="nombre" placeholder="Jugador 1" maxlength="16">
+            <div class="colores">
+                <input type="button" name="blue" class="color" onclick="cambiarFondo(event,0)">
+                <input type="button" name="red" class="color" onclick="cambiarFondo(event,0)">
+                <input type="button" name="yellow" class="color" onclick="cambiarFondo(event,0)">
+                <input type="button" name="green" class="color" onclick="cambiarFondo(event,0)">
+            </div>
         </div>
 
-        <div id="espacio">   </div>
-
-        <div class="Ju">
-            <form  class="centrar">
-               <h2>Jugador 2</h2> 
-               <input type="text" name="nombre" placeholder="Introduce el nombre"> 
-               <div id="c2" class="colores">
-                <input type="button" name="blue" class="color">
-                <input type="button" name="red" class="color">
-                <input type="button" name="yellow" class="color">
-                <input type="button" name="green" class="color">
-                </div>
-            </form>
+        <div class="jugador">
+            <!-- <h2>Jugador 2</h2>  -->
+            <input type="text" id="nombreJ2" name="nombre" placeholder="Jugador 2" maxlength="16"> 
+            <div class="colores">
+                <input type="button" name="blue" class="color" onclick="cambiarFondo(event,1)">
+                <input type="button" name="red" class="color" onclick="cambiarFondo(event,1)">
+                <input type="button" name="yellow" class="color" onclick="cambiarFondo(event,1)">
+                <input type="button" name="green" class="color" onclick="cambiarFondo(event,1)">
+            </div>
         </div>
     </div>
-    <div id="pie">
-        <input type="button" name="inicio" id="inicio" value="INICIO"> 
-    </div>
-    </div>
+
+    <footer>
+        <input type="button" value="Jugar" onclick="continuarElegirPalabra()"> 
+    </footer>
 </body>
 </html>

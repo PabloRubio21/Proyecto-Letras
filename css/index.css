@@ -1,96 +1,117 @@
-#cuerpo{
+body{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-/* LETRAS */
-#titulo{
-    width: 100%;
-    height: 50px;
+
+/* Título letras */
+h1{
     display: flex;
     justify-content: center;
+    margin: 50px 0px;
+}
+h1 > .letra{
+    color: white;
+    font: oblique bold 125% cursive ;
 }
 
-/* Tamaño y fuente del Titulo*/
-.letra{
-    font:oblique bold 225% cursive ;
-}
-
-/* Cuadrados de jugadores*/
+/* Cuadrados de jugadores */
 #jugadores{
-    margin-top: 100px;
-    width: 100%; 
+    width: 100%;
     height: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
+#jugadores > .jugador{
+    width: 30%;
+    padding: 35px;
+    background-color: rgba(0, 0, 0, 0.282);
+    border-radius: 15px;
 
-.Ju{
-    background-color: rgb(155, 191, 233);
-    width: 300px;
-    height: 200px;
-    border-radius: 20px;
-}
-
-input::placeholder{ /* Dejar centrado el texto del placeholder*/
-    text-align: center;
- }
-
- /* Cuadrado invisible entre jugadores*/
-#espacio{
-    width: 300px;
-    height: 100px;
-    background-color: transparent;
-}
-
-.centrar{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
 }
+#jugadores > .jugador > h2{
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.25em;
+}
+input{
+    border: none;
+    text-align: center;
+    border-radius: 15px;
+}
+#jugadores > .jugador > input{
+    width: 100%;
+    padding: 15px 0px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.118);
+    color: rgba(255, 255, 255, 0.8);
+}
+input::placeholder{ 
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
 
 /* Botones de colores*/
 .colores{
     margin-top: 10px;
+    /* margin-bottom: 17px; */
     display: flex;
-    flex-wrap: wrap;
 }
-
 .color{
-    margin-left: 5px;
-    width: 50px; 
-    height: 50px; 
-    border-radius: 10px;
+    background: #444;
+    border: 5px solid rgba(0, 0, 0, 0.753);
+    margin: 0px 10px;
+    width: 40px;
+    height: 40px; 
+    border-radius: 30px;
     margin-top: 10px;
+    transition: 0.2s;
+}
+.color:hover{
+    cursor: pointer;
+    border: 2px solid rgba(0, 0, 0, 0.853);
+    box-shadow: 0px 0px 5px black;
 }
 
-/* Colores de los botones*/
-input[name="blue"]{
-    background-color: blue;
-}
-input[name="red"]{
-    background-color: red;
-}
-input[name="yellow"]{
-    background-color: yellow;
-}
-input[name="green"]{
-    background-color: green;
-}
-
-/* Donde esta el botón de inicio*/
-#pie{
-    width: 100%;
+/* Pie de página*/
+footer{
     display: flex;
     justify-content: center;
     margin-top: 50px;
 }
+footer > input{
+    color: whitesmoke;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.282);
+    font-size: 24px;
+    padding: 20px 40px;
+    transition: 0.3s;
+}
+footer > input:hover{
+    color: #abc;
+    background: rgba(0, 0, 0, 0.753);
+}
 
-@media only screen and (max-width: 915px) { /* espacio */
-    #espacio {
-      width: 900px;
+@media only screen and (max-width: 768px) {
+    body{
+        margin: 0px;
+    }
+    #jugadores > .jugador{
+        width: 100%;
+        border-radius: 0px;
+    }
+    #jugadores > .jugador:nth-child(1){
+        margin-bottom: 40px;
+    }
+    .colores{
+        flex-wrap: wrap;
+    }
+    footer, footer > input{
+        width: 90%;
     }
 }

@@ -1,3 +1,7 @@
+body{
+    color: white;
+}
+
 #listaLetras{
     display: flex;
     justify-content: center;
@@ -7,7 +11,7 @@
 
 #listaLetras > div{
     font-size: 50px;
-    color: #bbb;
+    color: #111;
     margin: 0px 5px;
 }
 

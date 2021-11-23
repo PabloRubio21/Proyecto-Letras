@@ -1,17 +1,40 @@
 class Jugador{
-    constructor(nombre, palabra) {
+    constructor(nombre, palabra, color) {
         this.nombre = nombre;
         this.palabra = palabra;
+        this.color = color;
         this.isPalabraValida = true;
     }
 }
-let Jugadores = [new Jugador("Jugador1", "PalabraJ1"),
-    new Jugador("Jugador2", "PalabraJ2")];
+
+let Jugadores;
 
 // TODO: Eliminar nombreJugador1 y nombreJugador2 para empezar a usar clases
 let nombreJugador1 = "Jugador1";
 let nombreJugador2 = "Jugador2";
 let letrasElegidas = sessionStorage.getItem("letrasElegidas");
+
+window.addEventListener("load", cargarJuego);
+
+function cargarJuego(){
+    // Si no existen las variables del sessionStorage, las crea
+    if(sessionStorage.getItem("nombreJugador1") === null) console.log("No existe " + sessionStorage.getItem("nombreJugador1"));
+    if(sessionStorage.getItem("nombreJugador1") === null) sessionStorage.setItem("nombreJugador1", "Jugador1");
+    if(sessionStorage.getItem("colorJugador1") === null) sessionStorage.setItem("colorJugador1", "red");
+    if(sessionStorage.getItem("nombreJugador2") === null) sessionStorage.setItem("nombreJugador2", "Jugador2");
+    if(sessionStorage.getItem("colorJugador2") === null) sessionStorage.setItem("colorJugador2", "blue");
+
+    Jugadores = [new Jugador("Jugador1", "PalabraJ1", sessionStorage.getItem("colorJugador1")),
+        new Jugador("Jugador2", "PalabraJ2", sessionStorage.getItem("colorJugador2"))];
+    
+    setFondo();
+}
+function setFondo(){
+    
+    document.body.style.backgroundImage =
+        `linear-gradient(-45deg, ${sessionStorage.getItem("colorJugador1")},
+         ${sessionStorage.getItem("colorJugador2")})`;
+}
 
 /**
  * Abre una ventana en la web de la RAE

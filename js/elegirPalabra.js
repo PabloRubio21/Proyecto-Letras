@@ -40,7 +40,7 @@ function setLetra(miEleccion){
                 listaLetras.children[indiceLetra].innerHTML = getConsonante();
                 break;
         }
-        listaLetras.children[indiceLetra].style.color = "black";
+        listaLetras.children[indiceLetra].style.color = "white";
 
         isTurnoJugador1 = !isTurnoJugador1;
 
@@ -59,7 +59,7 @@ function setLetra(miEleccion){
 function actualizarTitular(){
     if (!eleccionHaTerminado()){
         let textoTitular = isTurnoJugador1 ?
-        `Elige ${nombreJugador1}`: `Elige ${nombreJugador2}`;
+        `Elige ${Jugadores[0].nombre}`: `Elige ${Jugadores[1].nombre}`;
         titularEleccion.innerHTML = textoTitular;
     }
 }
