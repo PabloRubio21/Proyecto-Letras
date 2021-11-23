@@ -1,4 +1,4 @@
-let letrasIntroducidas="olaquetal";
+let letrasIntroducidas="OLAQUETAL";
 let contenedor1;
 let contenedor2;
 let cajas;
@@ -7,6 +7,9 @@ let cajas2;
 let letraAux="";
 let cajaAuxiliar;
 let boton;
+let caja1;
+let caja2;
+let elemento;
 
 /**
  * Crear eventos, alguna variable global, para cargar la pagina y
@@ -17,15 +20,34 @@ window.onload=function(){
     cajas1=contenedor1.children;
     contenedor2=document.getElementById("contenedor2");
     cajas2=contenedor2.children;
+    caja1=contenedor1.getElementsByClassName("caja");
+    caja2=contenedor2.getElementsByClassName("caja");
     boton=document.getElementsByTagName("button")[0];
 
-    // Eventos
-    contenedor1.addEventListener("click", cogerLetras);
-    contenedor2.addEventListener("click", cogerLetras);
-    contenedor1.addEventListener("click", colocarLetras);
-    contenedor2.addEventListener("click", colocarLetras);
-    boton.addEventListener("click", turnoPalabra);
+    if(detectMob()==false){
+        // Eventos drag and drop para ordenador
+        for (let i = 0; i < caja1.length; i++) {
+            caja1[i].addEventListener("dragstart", drag);
+            caja1[i].setAttribute("draggable", "true");
+            caja1[i].addEventListener("drop", drop);
+            caja1[i].addEventListener("dragover", allowDrop);
+        }
+        
+        for (let i = 0; i < caja2.length; i++) {
+            caja2[i].addEventListener("dragstart", drag);
+            caja2[i].setAttribute("draggable", "true");
+            caja2[i].addEventListener("drop", drop);
+            caja2[i].addEventListener("dragover", allowDrop);
+        }
+    }else{
+        // Eventos para movil
+        contenedor1.addEventListener("click", cogerLetras);
+        contenedor2.addEventListener("click", cogerLetras);
+        contenedor1.addEventListener("click", colocarLetras);
+        contenedor2.addEventListener("click", colocarLetras);
+    }
 
+    boton.addEventListener("click", turnoPalabra);
     agregarLetras(letrasIntroducidas);
     colocarTitulo();
 }
@@ -116,10 +138,6 @@ function diseño(){
 }
 
 /**
- * Coge el texto de cada caja y lo convierte a un string
- * @returns la palabra formada a partir de las letras dadas
- */
-/**
  * Coge el texto de cada caja y lo convierte a un string y crea el
  * sessionStorage correspondiente
  * @param {String} jugadorTurno turno de cada jugador
@@ -167,5 +185,48 @@ function turnoPalabra(){
         jugadorTurno="jugadorPalabra2";
         ventana="comprobarPalabra.html";
         darPalabra(jugadorTurno, ventana);
+    }
+}
+
+// Funciones drag and drop
+function allowDrop(e){
+    e.preventDefault();
+}
+
+function drag(e){
+    e.dataTransfer.setData("text", e.target.className);
+    elemento=e.target;
+}
+
+function drop(e){
+    var da;
+    e.preventDefault();
+    var data = e.dataTransfer.getData("text");
+    var datos=document.getElementsByClassName(data);
+    for (let i = 0; i < datos.length; i++) {
+        if(datos[i]==elemento){
+            da=datos[i];
+        }
+    }
+    if(e.target==da){
+        
+    }else if(e.target.innerHTML!=""){
+        var texto=document.createTextNode(da.innerHTML);
+        var aux=e.target.innerHTML;
+        e.target.innerHTML="";
+        e.target.appendChild(texto);
+        da.innerHTML=aux;
+    }else{
+        var texto=document.createTextNode(da.innerHTML);
+        e.target.appendChild(texto);
+        da.innerHTML="";
+    }
+}
+
+function detectMob(){
+    if(screen.width>=800){
+        return false;
+    }else{
+        return true;
     }
 }
