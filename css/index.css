@@ -64,7 +64,10 @@ input::placeholder{
 }
 .color{
     background: #444;
-    border: 5px solid rgba(0, 0, 0, 0.753);
+    border-width: 5px;
+    border-color: rgba(0, 0, 0, 0.753);
+    border-style: solid;
+    
     margin: 0px 10px;
     width: 40px;
     height: 40px; 
@@ -74,7 +77,7 @@ input::placeholder{
 }
 .color:hover{
     cursor: pointer;
-    border: 2px solid rgba(0, 0, 0, 0.853);
+    border-width: 2px;
     box-shadow: 0px 0px 5px black;
 }
 
@@ -83,18 +86,6 @@ footer{
     display: flex;
     justify-content: center;
     margin-top: 50px;
-}
-footer > input{
-    color: whitesmoke;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.282);
-    font-size: 24px;
-    padding: 20px 40px;
-    transition: 0.3s;
-}
-footer > input:hover{
-    color: #abc;
-    background: rgba(0, 0, 0, 0.753);
 }
 
 @media only screen and (max-width: 768px) {
@@ -111,7 +102,7 @@ footer > input:hover{
     .colores{
         flex-wrap: wrap;
     }
-    footer, footer > input{
+    footer{
         width: 90%;
     }
 }

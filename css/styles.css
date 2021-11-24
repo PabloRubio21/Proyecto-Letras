@@ -14,3 +14,26 @@ body{
 		background-position: 0% 50%;
 	}
 }
+input[type=button].dark{
+    color: whitesmoke;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.282);
+    padding: 20px 40px;
+    transition: 0.3s;
+	border: none;
+    text-align: center;
+    border-radius: 15px;
+	margin: 0px 10px 20px 10px;
+    font-size: 16px;
+}
+
+button, input[type=button].dark:hover{
+    color: #abc;
+    background: rgba(0, 0, 0, 0.753);
+}
+
+@media only screen and (max-width: 768px) {
+	input[type=button].dark{
+        width: 90%;
+    }
+}
