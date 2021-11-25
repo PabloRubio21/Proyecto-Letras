@@ -28,6 +28,7 @@ function cargarJuego(){
         new Jugador("Jugador2", "PalabraJ2", sessionStorage.getItem("colorJugador2"))];
     
     setFondo();
+    agregarBurbujas();
 }
 function setFondo(){
     
@@ -98,4 +99,18 @@ function checkPalabraMasLarga(){
 
     else
         return 1;
+}
+
+// Burbujas
+
+function agregarBurbujas(){
+    var cont=document.createElement("div");
+    var burbuja;
+    cont.classList="burbujas";
+    for (let i = 0; i < 7; i++) {
+        burbuja=document.createElement("div");
+        burbuja.classList="burbuja";
+        cont.appendChild(burbuja);
+    }
+    document.body.appendChild(cont);
 }
