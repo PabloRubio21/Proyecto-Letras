@@ -163,10 +163,13 @@ function colocarTitulo() {
     var texto;
     var titulo = document.getElementsByTagName("h1")[0];
     if (sessionStorage.getItem("jugadorPalabra1") == null) {
-        texto = document.createTextNode(nombreJugador1 + " introduce la palabra");
+        texto = document.createTextNode(sessionStorage.getItem("nombreJugador1") + " introduce la palabra");
         titulo.appendChild(texto);
     } else if (sessionStorage.getItem("jugadorPalabra2") == null) {
-        texto = document.createTextNode(nombreJugador2 + " introduce la palabra");
+        texto = document.createTextNode(sessionStorage.getItem("nombreJugador2") + " introduce la palabra");
+        titulo.appendChild(texto);
+    } else {
+        texto = document.createTextNode("Ya se han introducido las palabras");
         titulo.appendChild(texto);
     }
 }

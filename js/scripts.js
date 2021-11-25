@@ -24,9 +24,8 @@ function cargarJuego(){
     if(sessionStorage.getItem("nombreJugador2") === null) sessionStorage.setItem("nombreJugador2", "Jugador2");
     if(sessionStorage.getItem("colorJugador2") === null) sessionStorage.setItem("colorJugador2", "#255DF8");
 
-    Jugadores = [new Jugador("Jugador1", "PalabraJ1", sessionStorage.getItem("colorJugador1")),
-        new Jugador("Jugador2", "PalabraJ2", sessionStorage.getItem("colorJugador2"))];
-    
+    Jugadores = [new Jugador(sessionStorage.getItem("nombreJugador1"), "PalabraJ1", sessionStorage.getItem("colorJugador1")),
+        new Jugador(sessionStorage.getItem("nombreJugador2"), "PalabraJ2", sessionStorage.getItem("colorJugador2"))];    
     setFondo();
     agregarBurbujas();
 }
@@ -86,14 +85,17 @@ function getRandomFromArray(miArray){
  * @returns 0, 1 si gana un jugador, "empate" o "ganaNadie"
  */
 function checkPalabraMasLarga(){
+    let palabraJ1 = sessionStorage.getItem("jugadorPalabra1");
+    let palabraJ2 = sessionStorage.getItem("jugadorPalabra2");
+    
     if (!Jugadores[0].isPalabraValida && !Jugadores[1].isPalabraValida)
         return "ganaNadie";
 
-    else if (Jugadores[0].palabra.length == Jugadores[1].palabra.length
+    else if (palabraJ1.length == palabraJ2.length
         && Jugadores[0].isPalabraValida && Jugadores[1].isPalabraValida)
         return "empate";
 
-    else if(Jugadores[0].palabra.length > Jugadores[1].palabra.length && Jugadores[0].isPalabraValida
+    else if(palabraJ1.length > palabraJ2.length && Jugadores[0].isPalabraValida
         && Jugadores[1].isPalabraValida || !Jugadores[1].isPalabraValida)
         return 0;
 
@@ -101,8 +103,9 @@ function checkPalabraMasLarga(){
         return 1;
 }
 
-// Burbujas
-
+/**
+ * Añade las burbujas al background
+ */
 function agregarBurbujas(){
     var cont=document.createElement("div");
     var burbuja;

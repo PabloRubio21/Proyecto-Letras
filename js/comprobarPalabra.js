@@ -9,8 +9,16 @@ window.onload = function(){
 
     // Pone el nombre y la palabra del jugador ganador
     try{
-        titularGanador.innerHTML = `${Jugadores[checkPalabraMasLarga()].nombre} tiene la palabra mas larga`;
-        titularPalabra.innerHTML = `${Jugadores[checkPalabraMasLarga()].palabra}`;
+        switch (checkPalabraMasLarga()){
+            case 0:
+                titularPalabra.innerHTML = sessionStorage.getItem("jugadorPalabra1");
+                titularGanador.innerHTML = `${sessionStorage.getItem("nombreJugador1")} tiene la palabra mas larga`;
+                break;
+            case 1:
+                titularPalabra.innerHTML = sessionStorage.getItem("jugadorPalabra2");
+                titularGanador.innerHTML = `${sessionStorage.getItem("nombreJugador2")} tiene la palabra mas larga`;
+                break;
+        }
     }
     catch (error){
         console.log(error);

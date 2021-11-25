@@ -13,8 +13,10 @@ window.onload = function(){
  * y carga elegirPalabra.html
  */
  function continuarElegirPalabra(){
-   sessionStorage.setItem("nombreJugador1", document.getElementById("nombreJ1").innerHTML);
-   sessionStorage.setItem("nombreJugador2", document.getElementById("nombreJ2").innerHTML);
+   if (document.getElementById("nombreJ1").value != "")
+      sessionStorage.setItem("nombreJugador1", document.getElementById("nombreJ1").value);
+   if (document.getElementById("nombreJ2").value != "")
+      sessionStorage.setItem("nombreJugador2", document.getElementById("nombreJ2").value);
    window.open("elegirPalabra.html", "_self");
 }
 
