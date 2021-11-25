@@ -23,6 +23,8 @@ function setLetra(miEleccion){
     if (eleccionHaTerminado()) {
         if (!isCuentaAtrasIniciada){
             cuentaAtras();
+            document.getElementById("loadingBar").style.visibility = "visible";
+            document.getElementById("loadingBar").children[0].style.background = "#4fa";
             document.getElementById("loadingBar").children[0].style.width = "100%";
             document.getElementById("loadingBar").children[0].style.transition
                 = `${segundosCuentaAtrás}s linear`;
@@ -77,7 +79,7 @@ function eleccionHaTerminado(){
 function cuentaAtras() {
     titularEleccion.innerHTML = `Piensa en una palabra</br>
         ${contadorSegundos}
-        <span style="color:#aaa; font-size:14px"> /
+        <span style="color:#222; font-size:20px"> /
         ${segundosCuentaAtrás}</span>`;
 
     if (segundosCuentaAtrás > contadorSegundos){

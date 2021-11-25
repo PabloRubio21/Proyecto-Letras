@@ -6,16 +6,18 @@ body{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin: 90px 0px 20px 0px;
 }
 
 #listaLetras > div{
-    font-size: 50px;
-    color: #111;
+    font-size: 80px;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
     margin: 0px 5px;
 }
 
 #titularEleccion{
+    font-size: 30px;
     text-align: center;
 }
 
@@ -25,28 +27,16 @@ body{
     justify-content: center;
 }
 
-#botonesEleccion > input{
-    margin: 5px 5px;
-    padding: 10px 15px;
-}
-
 #loadingBar {
-    background: #ccc;
-    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    width: 90%;
+    visibility: hidden;
+    margin: auto;
 }
 #loadingBar > div{
-    background: #888;
-    height: 20px;
+    border-radius: 15px;
+    background: #fff;
+    height: 40px;
     width: 0%;
-}
-
-@media screen and (max-width: 425px){
-    #botonesEleccion > input{
-        width: 100%;
-    }
-
-    #botonesEleccion > input{
-        margin: 5px 5px;
-        padding: 20px;
-    }
 }

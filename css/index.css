@@ -14,7 +14,35 @@ h1{
 h1 > .letra{
     color: white;
     font: oblique bold 125% cursive ;
+    animation: move 4s infinite ease-in-out;
+    transform: translate(0, -5px);
 }
+/* Animación de las letras*/
+@keyframes move {
+    0% {
+        transform: translate(0, -5px);
+    }
+
+    50% {
+        transform: translate(0, 5px);
+    }
+
+    100% {
+        transform: translate(0, -5px);
+
+    } 
+}
+.letra:nth-child(1) {animation-delay: 0s;}
+
+.letra:nth-child(2) {animation-delay: 1s;}
+
+.letra:nth-child(3) {animation-delay: 2s;}
+
+.letra:nth-child(4) {animation-delay: 3s;}
+
+.letra:nth-child(5) {animation-delay: 4s;}
+
+.letra:nth-child(6) {animation-delay: 5s;}
 
 /* Cuadrados de jugadores */
 #jugadores{
@@ -64,7 +92,10 @@ input::placeholder{
 }
 .color{
     background: #444;
-    border: 5px solid rgba(0, 0, 0, 0.753);
+    border-width: 5px;
+    border-color: rgba(0, 0, 0, 0.753);
+    border-style: solid;
+    
     margin: 0px 10px;
     width: 40px;
     height: 40px; 
@@ -74,7 +105,7 @@ input::placeholder{
 }
 .color:hover{
     cursor: pointer;
-    border: 2px solid rgba(0, 0, 0, 0.853);
+    border-width: 2px;
     box-shadow: 0px 0px 5px black;
 }
 
@@ -83,18 +114,6 @@ footer{
     display: flex;
     justify-content: center;
     margin-top: 50px;
-}
-footer > input{
-    color: whitesmoke;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.282);
-    font-size: 24px;
-    padding: 20px 40px;
-    transition: 0.3s;
-}
-footer > input:hover{
-    color: #abc;
-    background: rgba(0, 0, 0, 0.753);
 }
 
 @media only screen and (max-width: 768px) {
@@ -111,7 +130,7 @@ footer > input:hover{
     .colores{
         flex-wrap: wrap;
     }
-    footer, footer > input{
+    footer{
         width: 90%;
     }
 }

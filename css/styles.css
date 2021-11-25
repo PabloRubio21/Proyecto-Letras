@@ -14,3 +14,118 @@ body{
 		background-position: 0% 50%;
 	}
 }
+button.dark, input[type=button].dark{
+    color: whitesmoke;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.282);
+    padding: 20px 40px;
+    transition: 0.3s;
+	border: none;
+    text-align: center;
+    border-radius: 15px;
+	margin: 0px 10px 20px 10px;
+    font-size: 16px;
+}
+
+button.dark:hover, input[type=button].dark:hover{
+    color: #abc;
+    background: rgba(0, 0, 0, 0.753);
+}
+
+@media only screen and (max-width: 768px) {
+	input[type=button].dark{
+        width: 90%;
+    }
+}
+
+/* Burbujas */
+
+.burbuja{
+    background-color: #fff;
+    opacity: 0;
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: 0;
+
+    animation: burbujas 3s infinite;
+    z-index: -1;
+}
+
+@keyframes burbujas {
+    0%{
+        bottom: 0;
+        opacity: 0;
+    }
+    50%{
+        opacity: .1;
+    }
+    100%{
+        bottom: 100vh;
+        opacity: 0;
+    }
+}
+
+.burbuja:nth-child(1){
+    width: 80px;
+    height: 80px;
+    left: 5%;
+    animation-duration: 6s;
+    animation-delay: 3s;
+}
+
+.burbuja:nth-child(2){
+    width: 100px;
+    height: 100px;
+    left: 35%;
+    animation-duration: 6s;
+    animation-delay: 5s;
+}
+
+.burbuja:nth-child(3){
+    width: 20px;
+    height: 20px;
+    left: 15%;
+    animation-duration: 3s;
+    animation-delay: 7s;
+}
+
+.burbuja:nth-child(4){
+    width: 50px;
+    height: 50px;
+    left: 90%;
+    animation-duration: 12s;
+    animation-delay: 3s;
+}
+
+.burbuja:nth-child(5){
+    width: 70px;
+    height: 70px;
+    left: 20%;
+    animation-duration: 6s;
+    animation-delay: 1s;
+}
+
+.burbuja:nth-child(6){
+    width: 20px;
+    height: 20px;
+    left: 50%;
+    animation-duration: 8s;
+    animation-delay: 5s;
+}
+
+.burbuja:nth-child(7){
+    width: 35px;
+    height: 35px;
+    left: 75%;
+    animation-duration: 6s;
+    animation-delay: 2s;
+}
+
+.burbuja:nth-child(8){
+    width: 70px;
+    height: 70px;
+    left: 54%;
+    animation-duration: 10s;
+    animation-delay: 5s;
+}

@@ -20,9 +20,9 @@ function cargarJuego(){
     // Si no existen las variables del sessionStorage, las crea
     if(sessionStorage.getItem("nombreJugador1") === null) console.log("No existe " + sessionStorage.getItem("nombreJugador1"));
     if(sessionStorage.getItem("nombreJugador1") === null) sessionStorage.setItem("nombreJugador1", "Jugador1");
-    if(sessionStorage.getItem("colorJugador1") === null) sessionStorage.setItem("colorJugador1", "red");
+    if(sessionStorage.getItem("colorJugador1") === null) sessionStorage.setItem("colorJugador1", "#FF00FF");
     if(sessionStorage.getItem("nombreJugador2") === null) sessionStorage.setItem("nombreJugador2", "Jugador2");
-    if(sessionStorage.getItem("colorJugador2") === null) sessionStorage.setItem("colorJugador2", "blue");
+    if(sessionStorage.getItem("colorJugador2") === null) sessionStorage.setItem("colorJugador2", "#255DF8");
 
     Jugadores = [new Jugador("Jugador1", "PalabraJ1", sessionStorage.getItem("colorJugador1")),
         new Jugador("Jugador2", "PalabraJ2", sessionStorage.getItem("colorJugador2"))];
