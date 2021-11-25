@@ -14,7 +14,35 @@ h1{
 h1 > .letra{
     color: white;
     font: oblique bold 125% cursive ;
+    animation: move 4s infinite ease-in-out;
+    transform: translate(0, -5px);
 }
+/* Animación de las letras*/
+@keyframes move {
+    0% {
+        transform: translate(0, -5px);
+    }
+
+    50% {
+        transform: translate(0, 5px);
+    }
+
+    100% {
+        transform: translate(0, -5px);
+
+    } 
+}
+.letra:nth-child(1) {animation-delay: 0s;}
+
+.letra:nth-child(2) {animation-delay: 1s;}
+
+.letra:nth-child(3) {animation-delay: 2s;}
+
+.letra:nth-child(4) {animation-delay: 3s;}
+
+.letra:nth-child(5) {animation-delay: 4s;}
+
+.letra:nth-child(6) {animation-delay: 5s;}
 
 /* Cuadrados de jugadores */
 #jugadores{
