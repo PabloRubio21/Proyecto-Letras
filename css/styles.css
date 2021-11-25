@@ -14,7 +14,7 @@ body{
 		background-position: 0% 50%;
 	}
 }
-input[type=button].dark{
+button.dark, input[type=button].dark{
     color: whitesmoke;
     cursor: pointer;
     background: rgba(0, 0, 0, 0.282);
@@ -27,7 +27,7 @@ input[type=button].dark{
     font-size: 16px;
 }
 
-button, input[type=button].dark:hover{
+button.dark:hover, input[type=button].dark:hover{
     color: #abc;
     background: rgba(0, 0, 0, 0.753);
 }
