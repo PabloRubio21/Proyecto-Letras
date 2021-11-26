@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Letras ✏ Empate</title>
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/scripts.js"></script>
+</head>
+<body>
+    <h1>
+        <span class="letra">E</span>
+        <span class="letra">M</span>
+        <span class="letra">P</span>
+        <span class="letra">A</span>
+        <span class="letra">T</span>
+        <span class="letra">E</span>
+    </h1>
+    <h2>Ambos jugadores tienen una palabra igual de larga</h2>
+    <div id="jugadores">
+        <div class="jugador">
+            <h4>Jugador 1</h4>
+            <h3 id="palabraJ1">PalabraJ1</h3>
+            <input type="button" class="dark" value="Comprobar en la RAE" onclick="buscarRaePorInnerHTML('palabraJ1')">
+            <input type="button" class="dark" value="No es correcta">
+        </div>
+
+        <div class="jugador">
+            <h4>Jugador 2</h4>
+            <h3  id="palabraJ2">PalabraJ2</h3>
+            <input type="button" class="dark" value="Comprobar en la RAE" onclick="buscarRaePorInnerHTML('palabraJ2')">
+            <input type="button" class="dark" value="No es correcta">
+        </div>
+    </div>
+
+    <footer>
+        <input type="button" value="Ambas palabras son correctas" class="dark" onclick="continuarElegirPalabra()"> 
+    </footer>
+</body>
+</html>

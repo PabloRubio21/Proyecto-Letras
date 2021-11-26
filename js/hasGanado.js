@@ -1,7 +1,19 @@
 window.onload = function(){
+    let titular = document.getElementById("titularGanador");
+    switch (checkPalabraMasLarga()){
+        case 0:
+        case 1:
+            titular.innerHTML = `${Jugadores[checkPalabraMasLarga()].nombre} ha ganado`;
+            break;
+        case "ganaNadie":
+            titular.innerHTML = `Nadie gana, ninguna palabra es válida :(`;
+            break;
+        case "empate":
+            titular.innerHTML = `Empate, ambas palabras son igual de largas :)`;
+            break;
+    }
     try{
-        document.getElementById("titularGanador").innerHTML
-            = `${Jugadores[checkPalabraMasLarga()].nombre} ha ganado`;
+        
     }
     catch (error){
         console.log(error);

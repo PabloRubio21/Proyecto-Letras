@@ -1,45 +1,20 @@
-#listaLetras{
+body{
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 40px;
+    flex-direction: column;
+    align-items: center
 }
-
-#listaLetras > div{
-    font-size: 50px;
-    color: #bbb;
-    margin: 0px 5px;
-}
-
-#titularGanador, #titularPalabra{
-    text-align: center;
-}
-
-#titularPalabra{
-    font-size: 50px;
-}
-#titularGanador{
-    color: #aaa;
-}
-
 #botonesEleccion{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-
-#botonesEleccion > input{
-    margin: 5px 5px;
-    padding: 10px 15px;
+#titularPalabra{
+    text-align: center;
+    color: white;
+    font-size: 80px;
 }
-
-@media screen and (max-width: 425px){
-    #botonesEleccion > input{
-        width: 100%;
-    }
-
-    #botonesEleccion > input{
-        margin: 5px 5px;
-        padding: 20px;
-    }
+#titularGanador{
+    text-align: center;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.5);
 }
