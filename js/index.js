@@ -23,6 +23,7 @@ window.onload = function(){
 let fondo = [sessionStorage.getItem("colorJugador1"), sessionStorage.getItem("colorJugador2")];
 
 function cambiarFondo(event, idJugador){
+   fondo = [sessionStorage.getItem("colorJugador1"), sessionStorage.getItem("colorJugador2")];
    fondo[idJugador] = event.target.getAttribute("name");
 
    sessionStorage.setItem("colorJugador1", fondo[0]);
