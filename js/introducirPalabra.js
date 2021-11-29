@@ -139,29 +139,14 @@ function diseño() {
 }
 
 /**
- * Coge el texto de cada caja y lo convierte a un string y crea el
- * sessionStorage correspondiente
- * @param {String} jugadorTurno turno de cada jugador
- * @param {String} ventana para diferenciar que ventana abrir en cada caso
+ * Coge el texto de cada caja y lo convierte a un string
  */
-function darPalabra(jugadorTurno, ventana) {
+function darPalabra() {
     let array = [];
     for (let i = 0; i < cajas2.length; i++) {
         array.push(cajas2[i].innerHTML);
     }
-    let palabra = array.join("");
-    if (palabra != "") {
-        sessionStorage.setItem(jugadorTurno, palabra);
-        if(sessionStorage.getItem("jugadorPalabra1") != null && sessionStorage.getItem("jugadorPalabra2") != null){
-            if(checkPalabraMasLarga()=="empate"){
-                window.open("comprobarEmpate.html", "_self");
-            }else{
-                window.open(ventana, "_self");
-            }
-        }else{
-            window.open(ventana, "_self");
-        }
-    }
+    return array.join("");
 }
 
 /**
@@ -187,16 +172,22 @@ function colocarTitulo() {
  * si no lo estan, las crea y luego abre la siguiente ventana
  */
 function turnoPalabra() {
-    var jugadorTurno;
-    var ventana;
-    if (sessionStorage.getItem("jugadorPalabra1") == null) {
-        jugadorTurno = "jugadorPalabra1";
-        ventana = "introducirPalabra.html";
-        darPalabra(jugadorTurno, ventana);
-    } else if (sessionStorage.getItem("jugadorPalabra2") == null) {
-        jugadorTurno = "jugadorPalabra2";
-        ventana = "comprobarPalabra.html";
-        darPalabra(jugadorTurno, ventana);
+    if (sessionStorage.getItem("jugadorPalabra1") == null && darPalabra()!="") {
+        sessionStorage.setItem("jugadorPalabra1", darPalabra());
+        window.open("introducirPalabra.html", "_self");
+    } else if (sessionStorage.getItem("jugadorPalabra2") == null && darPalabra()!="") {
+        sessionStorage.setItem("jugadorPalabra2", darPalabra());
+        if(checkPalabraMasLarga()=="empate"){
+            window.open("comprobarEmpate.html", "_self");
+        }else{
+            window.open("comprobarPalabra.html", "_self");
+        }
+    } else {
+        if(checkPalabraMasLarga()=="empate"){
+            window.open("comprobarEmpate.html", "_self");
+        }else{
+            window.open("comprobarPalabra.html", "_self");
+        }
     }
 }
 
