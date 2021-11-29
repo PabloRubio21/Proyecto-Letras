@@ -152,7 +152,15 @@ function darPalabra(jugadorTurno, ventana) {
     let palabra = array.join("");
     if (palabra != "") {
         sessionStorage.setItem(jugadorTurno, palabra);
-        window.open(ventana, "_self");
+        if(sessionStorage.getItem("jugadorPalabra1") != null && sessionStorage.getItem("jugadorPalabra2") != null){
+            if(checkPalabraMasLarga()=="empate"){
+                window.open("comprobarEmpate.html", "_self");
+            }else{
+                window.open(ventana, "_self");
+            }
+        }else{
+            window.open(ventana, "_self");
+        }
     }
 }
 
