@@ -117,3 +117,11 @@ function agregarBurbujas(){
     }
     document.body.appendChild(cont);
 }
+
+/**
+ * Carga el index, y reinicia el sessionStorage
+ */
+function reiniciarJuego(){
+    sessionStorage.clear();
+    window.open('index.html','_self');
+}

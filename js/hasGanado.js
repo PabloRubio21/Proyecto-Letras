@@ -1,5 +1,5 @@
 window.onload = function(){
-    let titular = document.getElementById("titularGanador");
+    let titular = document.getElementById("titularPalabra");
     switch (checkPalabraMasLarga()){
         case 0:
         case 1:
