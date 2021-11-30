@@ -18,12 +18,18 @@ let letrasElegidas = sessionStorage.getItem("letrasElegidas");
 window.addEventListener("load", cargarJuego);
 
 function cargarJuego(){
+    let defaultColors = ["#FF00FF", "#255DF8"];
     // Si no existen las variables del sessionStorage, las crea
-    if(sessionStorage.getItem("nombreJugador1") === null) console.log("No existe " + sessionStorage.getItem("nombreJugador1"));
-    if(sessionStorage.getItem("nombreJugador1") === null) sessionStorage.setItem("nombreJugador1", "Jugador1");
-    if(sessionStorage.getItem("colorJugador1") === null) sessionStorage.setItem("colorJugador1", "#FF00FF");
-    if(sessionStorage.getItem("nombreJugador2") === null) sessionStorage.setItem("nombreJugador2", "Jugador2");
-    if(sessionStorage.getItem("colorJugador2") === null) sessionStorage.setItem("colorJugador2", "#255DF8");
+    for (let i = 1; i < 3; i++){
+        if(sessionStorage.getItem(`nombreJugador${i}`) === null)
+            sessionStorage.setItem(`nombreJugador${i}`, `Jugador${i}`);
+
+        if(sessionStorage.getItem(`colorJugador${i}`) === null)
+            sessionStorage.setItem(`colorJugador${i}`, defaultColors[i-1]);
+
+        if(sessionStorage.getItem(`validoJugador${i}`) === null)
+            sessionStorage.setItem(`validoJugador${i}`, true);
+    }
 
     Jugadores = [new Jugador(sessionStorage.getItem("nombreJugador1"), "PalabraJ1", sessionStorage.getItem("colorJugador1")),
         new Jugador(sessionStorage.getItem("nombreJugador2"), "PalabraJ2", sessionStorage.getItem("colorJugador2"))];    
