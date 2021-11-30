@@ -30,10 +30,20 @@ body {
     .caja {
         height: 10vw;
         font-size: 5vw;
+        margin-left: 1px;
+        margin-right: 1px;
     }
 
     .super{
         width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 249px) {
+    .caja {
+        font-size: 8vw;
+        border-width: 0.1px;
     }
 }
 

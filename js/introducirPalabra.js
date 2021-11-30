@@ -48,8 +48,10 @@ window.onload = function () {
     }
 
     boton.addEventListener("click", turnoPalabra);
+    
     agregarLetras(letrasIntroducidas);
     colocarTitulo();
+    responsiveMovil();
 }
 
 /**
@@ -245,10 +247,35 @@ function drop(e) {
  * @returns un true o un false
  */
 function detectMob() {
-    if (screen.width >= 800) {
+    if (screen.width >= 1441) {
         return false;
     } else {
         return true;
+    }
+}
+
+/**
+ * Cuando detecta que es un movil, cambia la configuración de las cajas para
+ * hacerlo responsive
+ */
+function responsiveMovil(){
+    if(detectMob()==true){
+        for (let i = 0; i < caja1.length; i++) {
+            caja1[i].style.width="9vw";
+            caja1[i].style.height="10vw";
+            caja1[i].style.marginLeft="6px";
+            caja1[i].style.marginRight="6px";
+            caja1[i].style.fontSize="5vw";
+        }
+        for (let i = 0; i < caja2.length; i++) {
+            caja2[i].style.width="9vw";
+            caja2[i].style.height="10vw";
+            caja2[i].style.marginLeft="6px";
+            caja2[i].style.marginRight="6px";
+            caja2[i].style.fontSize="5vw";
+        }
+        boton.style.width="100%";
+        boton.style.fontSize="4vw";
     }
 }
 
