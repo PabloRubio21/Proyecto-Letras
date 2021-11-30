@@ -18,3 +18,18 @@ body{
     font-size: 30px;
     color: rgba(0, 0, 0, 0.5);
 }
+
+.confeti{
+    position: relative;
+    opacity: 0;
+    margin: 5px;
+}
+
+.contenedorConfetis{
+    align-self: stretch;
+    padding: 3%;
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}

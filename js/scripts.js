@@ -8,6 +8,7 @@ class Jugador{
 }
 
 let Jugadores;
+let crearBurbujas = true;
 
 // TODO: Eliminar nombreJugador1 y nombreJugador2 para empezar a usar clases
 let nombreJugador1 = "Jugador1";
@@ -27,7 +28,7 @@ function cargarJuego(){
     Jugadores = [new Jugador(sessionStorage.getItem("nombreJugador1"), "PalabraJ1", sessionStorage.getItem("colorJugador1")),
         new Jugador(sessionStorage.getItem("nombreJugador2"), "PalabraJ2", sessionStorage.getItem("colorJugador2"))];    
     setFondo();
-    agregarBurbujas();
+    if (crearBurbujas) agregarBurbujas();
 }
 function setFondo(){
     
