@@ -48,7 +48,6 @@ var animaciones = ["tirarConfeti", "tirarConfetiInverso"];
  */
 function agregarConfeti(){
     var confetiContainer = document.getElementById("contenedorConfetis");
-    console.log(confetiContainer);
     var miConfeti;
         // confetiContainer.classList = "contenedorConfetis";
 

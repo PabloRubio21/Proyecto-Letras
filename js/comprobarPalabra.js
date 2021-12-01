@@ -9,12 +9,15 @@ window.onload = function(){
 
     // Pone el nombre y la palabra del jugador ganador
     try{
+        //TODO: Este switch es redundante y se puede simplificar
         switch (checkPalabraMasLarga()){
             case 0:
+                jugadorSeleccionado = 0;
                 titularPalabra.innerHTML = sessionStorage.getItem("jugadorPalabra1");
                 titularGanador.innerHTML = `${sessionStorage.getItem("nombreJugador1")} tiene la palabra mas larga`;
                 break;
             case 1:
+                jugadorSeleccionado = 1;
                 titularPalabra.innerHTML = sessionStorage.getItem("jugadorPalabra2");
                 titularGanador.innerHTML = `${sessionStorage.getItem("nombreJugador2")} tiene la palabra mas larga`;
                 break;
@@ -41,4 +44,8 @@ function palabraCorrecta(){
 function palabraIncorrecta(){
     // TODO: Marca la palabra del jugador como inválida
     // Jugadores[jugadorSeleccionado].isPalabraValida = false;
+    sessionStorage.setItem(`validoJugador${jugadorSeleccionado}`, false);
+    console.log(sessionStorage.getItem(`validoJugador${jugadorSeleccionado}`));
+    console.log(checkPalabraMasLarga());
+    console.log(Jugadores[1].isPalabraValida);
 }

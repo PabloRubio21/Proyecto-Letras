@@ -1,9 +1,9 @@
 class Jugador{
-    constructor(nombre, palabra, color) {
+    constructor(nombre, palabra, color, isPalabraValida) {
         this.nombre = nombre;
         this.palabra = palabra;
         this.color = color;
-        this.isPalabraValida = true;
+        this.isPalabraValida = isPalabraValida;
     }
 }
 
@@ -31,8 +31,18 @@ function cargarJuego(){
             sessionStorage.setItem(`validoJugador${i}`, true);
     }
 
-    Jugadores = [new Jugador(sessionStorage.getItem("nombreJugador1"), "PalabraJ1", sessionStorage.getItem("colorJugador1")),
-        new Jugador(sessionStorage.getItem("nombreJugador2"), "PalabraJ2", sessionStorage.getItem("colorJugador2"))];    
+    Jugadores = [
+        new Jugador(
+            sessionStorage.getItem("nombreJugador1"),
+            "PalabraJ1",
+            sessionStorage.getItem("colorJugador1"),
+            sessionStorage.getItem("validoJugador1")),
+        new Jugador(
+            sessionStorage.getItem("nombreJugador2"),
+            "PalabraJ2",
+            sessionStorage.getItem("colorJugador2"),
+            sessionStorage.getItem("validoJugador1"))
+            ];
     setFondo();
     if (crearBurbujas) agregarBurbujas();
 }
