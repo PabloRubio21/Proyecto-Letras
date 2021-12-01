@@ -20,7 +20,7 @@ button.dark, input[type=button].dark{
     cursor: pointer;
     background: rgba(0, 0, 0, 0.282);
     padding: 20px 40px;
-    transition: 0.3s;
+    transition: background 0.3s;
 	border: none;
     text-align: center;
     border-radius: 15px;
@@ -34,8 +34,9 @@ button.dark:hover, input[type=button].dark:hover{
 }
 
 @media only screen and (max-width: 768px) {
-	input[type=button].dark{
+	input[type=button].dark, button.dark{
         width: 90%;
+        padding: 20px 0px;
     }
 }
 
