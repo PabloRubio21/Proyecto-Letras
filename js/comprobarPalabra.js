@@ -42,10 +42,12 @@ function palabraCorrecta(){
 }
 
 function palabraIncorrecta(){
-    // TODO: Marca la palabra del jugador como inválida
-    // Jugadores[jugadorSeleccionado].isPalabraValida = false;
-    sessionStorage.setItem(`validoJugador${jugadorSeleccionado}`, false);
-    console.log(sessionStorage.getItem(`validoJugador${jugadorSeleccionado}`));
-    console.log(checkPalabraMasLarga());
-    console.log(Jugadores[1].isPalabraValida);
+    sessionStorage.setItem(`validoJugador${jugadorSeleccionado+1}`, false);
+    if (checkPalabraMasLarga() == 0 || checkPalabraMasLarga() == 1)
+        // Gana alguien
+        location.reload();
+    else
+        // Gana nadie, fin del juego
+        window.open('hasGanado.html','_self');
+
 }

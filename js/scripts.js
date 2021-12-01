@@ -31,23 +31,33 @@ function cargarJuego(){
             sessionStorage.setItem(`validoJugador${i}`, true);
     }
 
+    updateJugadores();
+    setFondo();
+    if (crearBurbujas) agregarBurbujas();
+}
+
+/**
+ * Actualiza los jugadores con los datos del sessionStorage
+ */
+function updateJugadores(){
     Jugadores = [
         new Jugador(
             sessionStorage.getItem("nombreJugador1"),
-            "PalabraJ1",
+            sessionStorage.getItem("jugadorPalabra1"),
             sessionStorage.getItem("colorJugador1"),
             sessionStorage.getItem("validoJugador1")),
         new Jugador(
             sessionStorage.getItem("nombreJugador2"),
-            "PalabraJ2",
+            sessionStorage.getItem("jugadorPalabra2"),
             sessionStorage.getItem("colorJugador2"),
-            sessionStorage.getItem("validoJugador1"))
-            ];
-    setFondo();
-    if (crearBurbujas) agregarBurbujas();
+            sessionStorage.getItem("validoJugador2"))
+    ];
 }
+
+/**
+ * Pone el gradiante del fondo
+ */
 function setFondo(){
-    
     document.body.style.backgroundImage =
         `linear-gradient(-45deg, ${sessionStorage.getItem("colorJugador1")},
          ${sessionStorage.getItem("colorJugador2")})`;
@@ -102,18 +112,18 @@ function getRandomFromArray(miArray){
  * @returns 0, 1 si gana un jugador, "empate" o "ganaNadie"
  */
 function checkPalabraMasLarga(){
-    let palabraJ1 = sessionStorage.getItem("jugadorPalabra1");
-    let palabraJ2 = sessionStorage.getItem("jugadorPalabra2");
+    updateJugadores();
     
-    if (!Jugadores[0].isPalabraValida && !Jugadores[1].isPalabraValida)
+    if (Jugadores[0].isPalabraValida == "false" && Jugadores[1].isPalabraValida == "false")
         return "ganaNadie";
 
-    else if (palabraJ1.length == palabraJ2.length
-        && Jugadores[0].isPalabraValida && Jugadores[1].isPalabraValida)
+    else if (Jugadores[0].palabra.length == Jugadores[1].palabra.length
+        && Jugadores[0].isPalabraValida == "true" && Jugadores[1].isPalabraValida == "true")
         return "empate";
 
-    else if(palabraJ1.length > palabraJ2.length && Jugadores[0].isPalabraValida
-        && Jugadores[1].isPalabraValida || !Jugadores[1].isPalabraValida)
+    else if(Jugadores[0].palabra.length > Jugadores[1].palabra.length
+         && Jugadores[0].isPalabraValida == "true"
+        || Jugadores[1].isPalabraValida != "true")
         return 0;
 
     else

@@ -4,6 +4,7 @@ body{
     align-items: center
 }
 #botonesEleccion{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -20,6 +21,7 @@ body{
 }
 
 .confeti{
+    pointer-events: none;
     position: relative;
     opacity: 0;
     margin: 5px;
