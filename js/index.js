@@ -68,3 +68,29 @@ function sonido(){
    sonido.setAttribute("src","./sonidos/appear-online.ogg");
    sonido.play();
 }
+
+// Botones de tiempo
+
+/**
+ * Cuando pulsas un boton de tiempo, guarda el valor del boton en un sessionStorage
+ * @param {Event} e evento
+ */
+ function getTiempo(e){
+   let botones=divBoton.children;
+   let select="";
+   for (let i = 0; i < botones.length; i++) {
+      if(botones[i].className!="dark" &&
+      e.target.parentElement==botones[i].parentElement){
+         botones[i].classList="dark";
+      }
+      if(botones[i]==e.target){
+         if(botones[i].innerHTML=="5s"){
+            select=botones[i].innerHTML.substring(0,1);
+         }else{
+            select=botones[i].innerHTML.substring(0,2);
+         }
+         sessionStorage.setItem("tiempo", select);
+         botones[i].classList="selected";
+      }
+   }
+}

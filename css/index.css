@@ -151,3 +151,41 @@ footer{
         width: 90%;
     }
 }
+
+/* Botones tiempo */
+
+#tiempo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+#tiempo .dark{
+    margin-right: 2px;
+    margin-left: 2px;
+    width:10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.selected{
+    width: 10%;
+    color: #abc;
+    background: rgba(0, 0, 0, 0.753);
+    cursor: pointer;
+    padding: 20px 40px;
+    transition: 0.3s;
+	border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    margin-right: 2px;
+    margin-left: 2px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}

@@ -5,7 +5,7 @@ let isTurnoJugador1 = 1;
 // Cuenta atrás
 let isCuentaAtrasIniciada = false;
 let contadorSegundos = 0;
-let segundosCuentaAtrás = 5; // En segundos
+let segundosCuentaAtrás = sessionStorage.getItem("tiempo"); // En segundos
 
 window.onload = function(){
     listaLetras = document.getElementById("listaLetras");
