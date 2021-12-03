@@ -1,7 +1,11 @@
 /**
+ * 
  * Pone el color del fondo del botón igual al nombre
  */
 window.onload = function(){
+   for(i = 0; i < document.getElementsByClassName("color").length; i++){
+      document.getElementsByClassName("color")[i].addEventListener("click", sonido);
+   }
    Array.from(document.getElementsByClassName("color")).forEach(element => {
       element.style.background = element.getAttribute("name");
    });
@@ -56,3 +60,11 @@ function getColor(idJugador){
 }
 
 const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
+
+
+/** Agregar sonido a los botones */
+function sonido(){
+   let sonido = document.getElementById("botonSonido");
+   sonido.setAttribute("src","./sonidos/appear-online.ogg");
+   sonido.play();
+}
