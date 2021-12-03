@@ -2,6 +2,7 @@
  * 
  * Pone el color del fondo del botón igual al nombre
  */
+let divBoton;
 window.onload = function(){
    for(i = 0; i < document.getElementsByClassName("color").length; i++){
       document.getElementsByClassName("color")[i].addEventListener("click", sonido);
@@ -10,6 +11,9 @@ window.onload = function(){
       element.style.background = element.getAttribute("name");
    });
    getColor();
+   divBoton=document.getElementById("tiempo");
+   divBoton.addEventListener("click", getTiempo);
+   sessionStorage.setItem("tiempo", "5");
 }
 
 /**
