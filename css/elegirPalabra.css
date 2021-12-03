@@ -40,3 +40,10 @@ body{
     height: 40px;
     width: 0%;
 }
+
+@media only screen and (max-width: 520px) {
+    #listaLetras > div{
+        font-size: 14vw;
+        margin: 0px 1vw;
+    }
+}

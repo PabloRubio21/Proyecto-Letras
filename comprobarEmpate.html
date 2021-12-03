@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="js/scripts.js"></script>
+    <script src="js/comprobarEmpate.js"></script>
 </head>
 <body>
     <h1>
@@ -22,22 +23,22 @@
     <h2>Ambos jugadores tienen una palabra igual de larga</h2>
     <div id="jugadores">
         <div class="jugador">
-            <h4>Jugador 1</h4>
+            <h4 id="nombreJ1">Jugador 1</h4>
             <h3 id="palabraJ1">PalabraJ1</h3>
             <input type="button" class="dark" value="Comprobar en la RAE" onclick="buscarRaePorInnerHTML('palabraJ1')">
-            <input type="button" class="dark" value="No es correcta">
+            <input type="button" class="dark" value="No es correcta" onclick="palabraIncorrecta(0)">
         </div>
 
         <div class="jugador">
-            <h4>Jugador 2</h4>
-            <h3  id="palabraJ2">PalabraJ2</h3>
+            <h4 id="nombreJ2">Jugador 2</h4>
+            <h3 id="palabraJ2">PalabraJ2</h3>
             <input type="button" class="dark" value="Comprobar en la RAE" onclick="buscarRaePorInnerHTML('palabraJ2')">
-            <input type="button" class="dark" value="No es correcta">
+            <input type="button" class="dark" value="No es correcta" onclick="palabraIncorrecta(1)">
         </div>
     </div>
 
     <footer>
-        <input type="button" value="Ambas palabras son correctas" class="dark" onclick="continuarElegirPalabra()"> 
+        <input type="button" value="Ambas palabras son correctas" class="dark" onclick="ambasCorrectas()"> 
     </footer>
 </body>
 </html>
