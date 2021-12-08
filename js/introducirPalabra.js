@@ -125,7 +125,9 @@ function colocarLetras(e) {
             }
         }
     }
-    animar(e.target);
+    if(e.target!=contenedor1 && e.target!=contenedor2){
+        animar(e.target);
+    }
 }
 
 /**
@@ -237,7 +239,9 @@ function drop(e) {
         e.target.appendChild(texto);
         da.innerHTML = "";
     }
-    animar(e.target);
+    if(e.target!=contenedor1 && e.target!=contenedor2){
+        animar(e.target);
+    }
 }
 
 /**
