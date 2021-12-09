@@ -9,10 +9,6 @@ class Jugador{
 
 let Jugadores;
 let crearBurbujas = true;
-
-// TODO: Eliminar nombreJugador1 y nombreJugador2 para empezar a usar clases
-let nombreJugador1 = "Jugador1";
-let nombreJugador2 = "Jugador2";
 let letrasElegidas = sessionStorage.getItem("letrasElegidas");
 
 window.addEventListener("load", cargarJuego);

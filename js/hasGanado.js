@@ -2,17 +2,22 @@ crearBurbujas = false;
 
 window.onload = function(){
     let titular = document.getElementById("titularPalabra");
+    let sbutitulo = document.getElementById("subtituloPalabra");
+    
     switch (checkPalabraMasLarga()){
         case 0:
         case 1:
-            titular.innerHTML = `${Jugadores[checkPalabraMasLarga()].nombre} ha ganado`;
+            titular.innerHTML = `¡${Jugadores[checkPalabraMasLarga()].nombre} gana!`;
+            sbutitulo.innerHTML = `Enhorabuena 🦾`;
             agregarConfeti();
             break;
         case "ganaNadie":
-            titular.innerHTML = `Nadie gana, ninguna palabra es válida :(`;
+            titular.innerHTML = `¡Nadie gana!`;
+            sbutitulo.innerHTML = `Ninguna palabra es válida 👻`;
             break;
         case "empate":
-            titular.innerHTML = `Empate, ambas palabras son igual de largas :)`;
+            titular.innerHTML = `¡Empate!`;
+            sbutitulo.innerHTML = `Ambas palabras son igual de largas ✨`;
             break;
     }
     try{
@@ -49,7 +54,6 @@ var animaciones = ["tirarConfeti", "tirarConfetiInverso"];
 function agregarConfeti(){
     var confetiContainer = document.getElementById("contenedorConfetis");
     var miConfeti;
-        // confetiContainer.classList = "contenedorConfetis";
 
     for (let i = 0; i < 30; i++) {
     miConfeti = document.createElement("div");
@@ -83,5 +87,4 @@ function agregarConfeti(){
     
     confetiContainer.appendChild(miConfeti);
     }
-    // document.body.appendChild(confetiContainer);
 }
